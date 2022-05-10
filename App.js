@@ -5,6 +5,7 @@ import {
   ViroText,
   ViroTrackingStateConstants,
   ViroARSceneNavigator,
+  Viro360Image,
 } from '@viro-community/react-viro';
 
 const HelloWorldSceneAR = () => {
@@ -13,7 +14,7 @@ const HelloWorldSceneAR = () => {
   function onInitialized(state, reason) {
     console.log('guncelleme', state, reason);
     if (state === ViroTrackingStateConstants.TRACKING_NORMAL) {
-      setText('Hello World!');
+      setText('Welcome to Banff');
     } else if (state === ViroTrackingStateConstants.TRACKING_UNAVAILABLE) {
       // Handle loss of tracking
     }
@@ -21,9 +22,14 @@ const HelloWorldSceneAR = () => {
 
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
+      <Viro360Image
+        source={{
+          uri: 'https://i.natgeofe.com/n/5e841814-7f17-4f65-bb87-ad96a2d69e3b/01-banff-national-park-canada.jpg?w=1272&h=848',
+        }}
+      />
       <ViroText
         text={text}
-        scale={[0.5, 0.5, 0.5]}
+        scale={[0.25, 0.25, 0.25]}
         position={[0, 0, -1]}
         style={styles.helloWorldTextStyle}
       />
@@ -47,7 +53,7 @@ var styles = StyleSheet.create({
   f1: {flex: 1},
   helloWorldTextStyle: {
     fontFamily: 'Arial',
-    fontSize: 30,
+    fontSize: 20,
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',
