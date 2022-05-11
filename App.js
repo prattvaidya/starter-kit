@@ -11,7 +11,7 @@ import {
 } from '@viro-community/react-viro';
 
 const imageSource = {
-  uri: 'https://i.natgeofe.com/n/5e841814-7f17-4f65-bb87-ad96a2d69e3b/01-banff-national-park-canada.jpg?w=1272&h=848',
+  uri: 'https://thumbs.dreamstime.com/b/vr-image-futuristic-sci-fi-city-modern-fiction-skyscrapers-buildings-galaxy-discover-spacescape-119014727.jpg',
 };
 
 const skyBoxSource = {
