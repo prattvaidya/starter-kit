@@ -11,6 +11,8 @@ import {
   Viro3DObject,
   ViroMaterials,
   ViroAmbientLight,
+  ViroFlexView,
+  ViroImage,
 } from '@viro-community/react-viro';
 
 const imageSource = {
@@ -91,7 +93,9 @@ const HelloWorldSceneAR = () => {
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
       {/* <Viro360Image source={imageSource} /> */}
+
       {/* <ViroSkyBox source={skyBoxSource} /> */}
+
       {/* <ViroNode position={[0, 0, -1]} scale={[2, 2, 2]}>
         <ViroText
           text="Text A"
@@ -108,7 +112,8 @@ const HelloWorldSceneAR = () => {
           <ViroText text="Text B" />
         </ViroNode>
       </ViroNode> */}
-      <Viro3DObject
+
+      {/* <Viro3DObject
         source={require('./assets/heart.obj')}
         position={[0, 0, -1.15]}
         materials={['heart']}
@@ -117,7 +122,17 @@ const HelloWorldSceneAR = () => {
         onLoadEnd={handleLoadEnd}
         onError={handleError}
       />
-      <ViroAmbientLight color="#FFFFFF" />
+      <ViroAmbientLight color="#FFFFFF" /> */}
+
+      <ViroFlexView
+        style={styles.flexViewStyle}
+        width={5.0}
+        height={5.0}
+        position={[0, 0, -2.0]}
+        rotation={[0, 45, 0]}>
+        <ViroImage source={skyBoxSource.nx} style={styles.flexImgStyle} />
+        <ViroImage source={skyBoxSource.ny} style={styles.flexImgStyle} />
+      </ViroFlexView>
     </ViroARScene>
   );
 };
@@ -153,4 +168,9 @@ var styles = StyleSheet.create({
     textAlignVertical: 'center',
     textAlign: 'center',
   },
+  flexViewStyle: {
+    flexDirection: 'row',
+    padding: 0.1,
+  },
+  flexImgStyle: {flex: 0.5},
 });
