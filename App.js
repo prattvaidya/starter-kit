@@ -47,12 +47,50 @@ const HelloWorldSceneAR = () => {
     }
   }
 
+  const handleClick = (position, source) => {
+    console.log('element clicked', position, source);
+  };
+
+  const handleClickState = (state, position, source) => {
+    console.log('clickstate called', state, position, source);
+  };
+
+  const handleHover = (isHovering, position, source) => {
+    console.log('hover called', isHovering, position, source);
+  };
+
+  const handleDrag = (position, source) => {
+    console.log('drag called', position, source);
+  };
+
+  const handleFuse = source => {
+    console.log('fuse called', source);
+  };
+
+  const handleScroll = (scrollPosition, source) => {
+    console.log('scroll called', scrollPosition, source);
+  };
+
+  const handleSwipe = (swipeState, source) => {
+    console.log('swipe called', swipeState, source);
+  };
+
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
       {/* <Viro360Image source={imageSource} /> */}
       {/* <ViroSkyBox source={skyBoxSource} /> */}
-      <ViroNode position={[0, 1, -1]} scale={[2, 2, 2]}>
-        <ViroText text="Text A" position={[0, -0.1, -1]} />
+      <ViroNode position={[0, 0, -1]} scale={[2, 2, 2]}>
+        <ViroText
+          text="Text A"
+          position={[0, 0, -1]}
+          onClick={handleClick}
+          onClickState={handleClickState}
+          onHover={handleHover}
+          onDrag={handleDrag}
+          onFuse={handleFuse}
+          onScroll={handleScroll}
+          onSwipe={handleSwipe}
+        />
         <ViroNode position={[1, 0, 0]} scale={[4, 4, 4]}>
           <ViroText text="Text B" />
         </ViroNode>
