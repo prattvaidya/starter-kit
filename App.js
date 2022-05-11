@@ -78,6 +78,16 @@ const HelloWorldSceneAR = () => {
     console.log('swipe called', swipeState, source);
   };
 
+  const handleLoadStart = () => {
+    console.log('OBJ loading has started');
+  };
+  const handleLoadEnd = () => {
+    console.log('OBJ loading has finished');
+  };
+  const handleError = event => {
+    console.log('OBJ loading failed with error: ' + event.nativeEvent.error);
+  };
+
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
       {/* <Viro360Image source={imageSource} /> */}
@@ -103,6 +113,9 @@ const HelloWorldSceneAR = () => {
         position={[0, 0, -1.15]}
         materials={['heart']}
         type="OBJ"
+        onLoadStart={handleLoadStart}
+        onLoadEnd={handleLoadEnd}
+        onError={handleError}
       />
       <ViroAmbientLight color="#FFFFFF" />
     </ViroARScene>
