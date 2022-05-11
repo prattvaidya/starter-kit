@@ -8,6 +8,9 @@ import {
   Viro360Image,
   ViroSkyBox,
   ViroNode,
+  Viro3DObject,
+  ViroMaterials,
+  ViroAmbientLight,
 } from '@viro-community/react-viro';
 
 const imageSource = {
@@ -79,7 +82,7 @@ const HelloWorldSceneAR = () => {
     <ViroARScene onTrackingUpdated={onInitialized}>
       {/* <Viro360Image source={imageSource} /> */}
       {/* <ViroSkyBox source={skyBoxSource} /> */}
-      <ViroNode position={[0, 0, -1]} scale={[2, 2, 2]}>
+      {/* <ViroNode position={[0, 0, -1]} scale={[2, 2, 2]}>
         <ViroText
           text="Text A"
           position={[0, 0, -1]}
@@ -94,7 +97,14 @@ const HelloWorldSceneAR = () => {
         <ViroNode position={[1, 0, 0]} scale={[4, 4, 4]}>
           <ViroText text="Text B" />
         </ViroNode>
-      </ViroNode>
+      </ViroNode> */}
+      <Viro3DObject
+        source={require('./assets/heart.obj')}
+        position={[0, 0, -1.15]}
+        materials={['heart']}
+        type="OBJ"
+      />
+      <ViroAmbientLight color="#FFFFFF" />
     </ViroARScene>
   );
 };
@@ -110,6 +120,16 @@ export default () => {
     />
   );
 };
+
+ViroMaterials.createMaterials({
+  heart: {
+    lightingModel: 'Blinn',
+    diffuseTexture: require('./assets/Heart_D3.jpeg'),
+    specularTexture: require('./assets/Heart_S2.jpeg'),
+    writesToDepthBuffer: true,
+    readsFromDepthBuffer: true,
+  },
+});
 
 var styles = StyleSheet.create({
   f1: {flex: 1},
