@@ -13,6 +13,8 @@ import {
   ViroAmbientLight,
   ViroFlexView,
   ViroImage,
+  ViroARPlane,
+  ViroBox,
 } from '@viro-community/react-viro';
 
 const imageSource = {
@@ -124,7 +126,7 @@ const HelloWorldSceneAR = () => {
       />
       <ViroAmbientLight color="#FFFFFF" /> */}
 
-      <ViroFlexView
+      {/* <ViroFlexView
         style={styles.flexViewStyle}
         width={5.0}
         height={5.0}
@@ -132,7 +134,11 @@ const HelloWorldSceneAR = () => {
         rotation={[0, 45, 0]}>
         <ViroImage source={skyBoxSource.nx} style={styles.flexImgStyle} />
         <ViroImage source={skyBoxSource.ny} style={styles.flexImgStyle} />
-      </ViroFlexView>
+      </ViroFlexView> */}
+
+      <ViroARPlane minHeight={0.5} minWidth={0.5} alignment={'Horizontal'}>
+        <ViroBox position={[0, 0.25, 0]} scale={[0.5, 0.5, 0.5]} />
+      </ViroARPlane>
     </ViroARScene>
   );
 };
