@@ -49,8 +49,14 @@ const HelloWorldSceneAR = () => {
 
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
-      <Viro360Image source={imageSource} />
+      {/* <Viro360Image source={imageSource} /> */}
       {/* <ViroSkyBox source={skyBoxSource} /> */}
+      <ViroNode position={[0, 1, -1]} scale={[2, 2, 2]}>
+        <ViroText text="Text A" position={[0, -0.1, -1]} />
+        <ViroNode position={[1, 0, 0]} scale={[4, 4, 4]}>
+          <ViroText text="Text B" />
+        </ViroNode>
+      </ViroNode>
     </ViroARScene>
   );
 };
