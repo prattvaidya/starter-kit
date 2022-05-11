@@ -15,6 +15,8 @@ import {
   ViroImage,
   ViroARPlane,
   ViroBox,
+  ViroARImageMarker,
+  ViroARTrackingTargets,
 } from '@viro-community/react-viro';
 
 const imageSource = {
@@ -136,9 +138,13 @@ const HelloWorldSceneAR = () => {
         <ViroImage source={skyBoxSource.ny} style={styles.flexImgStyle} />
       </ViroFlexView> */}
 
-      <ViroARPlane minHeight={0.5} minWidth={0.5} alignment={'Horizontal'}>
+      {/* <ViroARPlane minHeight={0.5} minWidth={0.5} alignment={'Horizontal'}>
         <ViroBox position={[0, 0.25, 0]} scale={[0.5, 0.5, 0.5]} />
-      </ViroARPlane>
+      </ViroARPlane> */}
+
+      <ViroARImageMarker target={'tttLogo'}>
+        <ViroBox position={[0, 0.25, 0]} scale={[0.1, 0.1, 0.1]} />
+      </ViroARImageMarker>
     </ViroARScene>
   );
 };
@@ -154,6 +160,14 @@ export default () => {
     />
   );
 };
+
+ViroARTrackingTargets.createTargets({
+  tttLogo: {
+    source: require('./assets/ttt.png'),
+    orientation: 'Up',
+    physicalWidth: 0.1, // real world width in meters
+  },
+});
 
 ViroMaterials.createMaterials({
   heart: {
