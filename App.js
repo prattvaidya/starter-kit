@@ -103,68 +103,68 @@ const HelloWorldSceneAR = () => {
     console.log('error', error);
   };
 
-  // return <BusinessCard />;
+  return <BusinessCard />;
 
-  return (
-    <ViroARScene
-      onTrackingUpdated={onInitialized}
-      onAnchorFound={anchor => {
-        console.log('anchor found by AR scene', anchor);
-      }}>
-      {/* <Viro360Image source={imageSource} /> */}
+  // return (
+  //   <ViroARScene
+  //     onTrackingUpdated={onInitialized}
+  //     onAnchorFound={anchor => {
+  //       console.log('anchor found by AR scene', anchor);
+  //     }}>
+  //     {/* <Viro360Image source={imageSource} /> */}
 
-      {/* <ViroSkyBox source={skyBoxSource} /> */}
+  //     {/* <ViroSkyBox source={skyBoxSource} /> */}
 
-      {/* <ViroNode position={[0, 0, -1]} scale={[2, 2, 2]}>
-        <ViroText
-          text="Text A"
-          position={[0, 0, -1]}
-          onClick={handleClick}
-          onClickState={handleClickState}
-          onHover={handleHover}
-          onDrag={handleDrag}
-          onFuse={handleFuse}
-          onScroll={handleScroll}
-          onSwipe={handleSwipe}
-        />
-        <ViroNode position={[1, 0, 0]} scale={[4, 4, 4]}>
-          <ViroText text="Text B" />
-        </ViroNode>
-      </ViroNode> */}
+  //     {/* <ViroNode position={[0, 0, -1]} scale={[2, 2, 2]}>
+  //       <ViroText
+  //         text="Text A"
+  //         position={[0, 0, -1]}
+  //         onClick={handleClick}
+  //         onClickState={handleClickState}
+  //         onHover={handleHover}
+  //         onDrag={handleDrag}
+  //         onFuse={handleFuse}
+  //         onScroll={handleScroll}
+  //         onSwipe={handleSwipe}
+  //       />
+  //       <ViroNode position={[1, 0, 0]} scale={[4, 4, 4]}>
+  //         <ViroText text="Text B" />
+  //       </ViroNode>
+  //     </ViroNode> */}
 
-      {/* <Viro3DObject
-        source={require('./assets/heart.obj')}
-        position={[0, 0, -1.15]}
-        materials={['heart']}
-        type="OBJ"
-        onLoadStart={handleLoadStart}
-        onLoadEnd={handleLoadEnd}
-        onError={handleError}
-      />
-      <ViroAmbientLight color="#FFFFFF" /> */}
+  //     {/* <Viro3DObject
+  //       source={require('./assets/heart.obj')}
+  //       position={[0, 0, -1.15]}
+  //       materials={['heart']}
+  //       type="OBJ"
+  //       onLoadStart={handleLoadStart}
+  //       onLoadEnd={handleLoadEnd}
+  //       onError={handleError}
+  //     />
+  //     <ViroAmbientLight color="#FFFFFF" /> */}
 
-      {/* <ViroFlexView
-        style={styles.flexViewStyle}
-        width={5.0}
-        height={5.0}
-        position={[0, 0, -2.0]}
-        rotation={[0, 45, 0]}>
-        <ViroImage source={skyBoxSource.nx} style={styles.flexImgStyle} />
-        <ViroImage source={skyBoxSource.ny} style={styles.flexImgStyle} />
-      </ViroFlexView> */}
+  //     {/* <ViroFlexView
+  //       style={styles.flexViewStyle}
+  //       width={5.0}
+  //       height={5.0}
+  //       position={[0, 0, -2.0]}
+  //       rotation={[0, 45, 0]}>
+  //       <ViroImage source={skyBoxSource.nx} style={styles.flexImgStyle} />
+  //       <ViroImage source={skyBoxSource.ny} style={styles.flexImgStyle} />
+  //     </ViroFlexView> */}
 
-      {/* <ViroARPlane minHeight={0.5} minWidth={0.5} alignment={'Horizontal'}>
-        <ViroBox position={[0, 0.25, 0]} scale={[0.5, 0.5, 0.5]} />
-      </ViroARPlane> */}
+  //     {/* <ViroARPlane minHeight={0.5} minWidth={0.5} alignment={'Horizontal'}>
+  //       <ViroBox position={[0, 0.25, 0]} scale={[0.5, 0.5, 0.5]} />
+  //     </ViroARPlane> */}
 
-      <ViroARImageMarker
-        target={'tttLogo'}
-        onAnchorFound={handleAnchorFound}
-        onError={handleARImageError}>
-        <ViroBox position={[0, 0.25, 0]} scale={[0.1, 0.1, 0.1]} />
-      </ViroARImageMarker>
-    </ViroARScene>
-  );
+  //     <ViroARImageMarker
+  //       target={'tttLogo'}
+  //       onAnchorFound={handleAnchorFound}
+  //       onError={handleARImageError}>
+  //       <ViroBox position={[0, 0.25, 0]} scale={[0.1, 0.1, 0.1]} />
+  //     </ViroARImageMarker>
+  //   </ViroARScene>
+  // );
 };
 
 export default () => {
@@ -179,24 +179,24 @@ export default () => {
   );
 };
 
-ViroARTrackingTargets.createTargets({
-  tttLogo: {
-    source: require('./assets/ttt.png'),
-    orientation: 'Up',
-    physicalWidth: 0.1, // real world width in meters
-    type: 'Image',
-  },
-});
+// ViroARTrackingTargets.createTargets({
+//   tttLogo: {
+//     source: require('./assets/ttt.png'),
+//     orientation: 'Up',
+//     physicalWidth: 0.1, // real world width in meters
+//     type: 'Image',
+//   },
+// });
 
-ViroMaterials.createMaterials({
-  heart: {
-    lightingModel: 'Blinn',
-    diffuseTexture: require('./assets/Heart_D3.jpeg'),
-    specularTexture: require('./assets/Heart_S2.jpeg'),
-    writesToDepthBuffer: true,
-    readsFromDepthBuffer: true,
-  },
-});
+// ViroMaterials.createMaterials({
+//   heart: {
+//     lightingModel: 'Blinn',
+//     diffuseTexture: require('./assets/Heart_D3.jpeg'),
+//     specularTexture: require('./assets/Heart_S2.jpeg'),
+//     writesToDepthBuffer: true,
+//     readsFromDepthBuffer: true,
+//   },
+// });
 
 var styles = StyleSheet.create({
   f1: {flex: 1},
