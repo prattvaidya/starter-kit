@@ -94,8 +94,22 @@ const HelloWorldSceneAR = () => {
     console.log('OBJ loading failed with error: ' + event.nativeEvent.error);
   };
 
+  const handleAnchorFound = anchor => {
+    console.log('anchor found', anchor);
+  };
+
+  const handleARImageError = error => {
+    console.log('error', error);
+  };
+
+  // return <BusinessCard />;
+
   return (
-    <ViroARScene onTrackingUpdated={onInitialized}>
+    <ViroARScene
+      onTrackingUpdated={onInitialized}
+      onAnchorFound={anchor => {
+        console.log('anchor found by AR scene', anchor);
+      }}>
       {/* <Viro360Image source={imageSource} /> */}
 
       {/* <ViroSkyBox source={skyBoxSource} /> */}
@@ -142,7 +156,10 @@ const HelloWorldSceneAR = () => {
         <ViroBox position={[0, 0.25, 0]} scale={[0.5, 0.5, 0.5]} />
       </ViroARPlane> */}
 
-      <ViroARImageMarker target={'tttLogo'}>
+      <ViroARImageMarker
+        target={'tttLogo'}
+        onAnchorFound={handleAnchorFound}
+        onError={handleARImageError}>
         <ViroBox position={[0, 0.25, 0]} scale={[0.1, 0.1, 0.1]} />
       </ViroARImageMarker>
     </ViroARScene>
