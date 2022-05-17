@@ -18,6 +18,7 @@ import {
   ViroARImageMarker,
   ViroARTrackingTargets,
 } from '@viro-community/react-viro';
+import {BusinessCard} from './BusinessCard';
 
 const imageSource = {
   uri: 'https://thumbs.dreamstime.com/b/vr-image-futuristic-sci-fi-city-modern-fiction-skyscrapers-buildings-galaxy-discover-spacescape-119014727.jpg',
@@ -183,6 +184,7 @@ ViroARTrackingTargets.createTargets({
     source: require('./assets/ttt.png'),
     orientation: 'Up',
     physicalWidth: 0.1, // real world width in meters
+    type: 'Image',
   },
 });
 
