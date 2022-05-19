@@ -18,7 +18,7 @@ import {
   ViroARImageMarker,
   ViroARTrackingTargets,
 } from '@viro-community/react-viro';
-import {BusinessCard} from './BusinessCard';
+import {BusinessCard} from './components/BusinessCard';
 
 const imageSource = {
   uri: 'https://thumbs.dreamstime.com/b/vr-image-futuristic-sci-fi-city-modern-fiction-skyscrapers-buildings-galaxy-discover-spacescape-119014727.jpg',
@@ -157,12 +157,12 @@ const HelloWorldSceneAR = () => {
   //       <ViroBox position={[0, 0.25, 0]} scale={[0.5, 0.5, 0.5]} />
   //     </ViroARPlane> */}
 
-  //     <ViroARImageMarker
+  //     {/* <ViroARImageMarker
   //       target={'tttLogo'}
   //       onAnchorFound={handleAnchorFound}
   //       onError={handleARImageError}>
   //       <ViroBox position={[0, 0.25, 0]} scale={[0.1, 0.1, 0.1]} />
-  //     </ViroARImageMarker>
+  //     </ViroARImageMarker> */}
   //   </ViroARScene>
   // );
 };
@@ -174,6 +174,7 @@ export default () => {
       initialScene={{
         scene: HelloWorldSceneAR,
       }}
+      numberOfTrackedImages={1}
       style={styles.f1}
     />
   );
